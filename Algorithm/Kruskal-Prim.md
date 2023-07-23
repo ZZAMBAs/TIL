@@ -62,7 +62,7 @@ int prim(int pn){ // pn: 노드 수
     dist.push(PII(0,1));
     
     for(int i=1; i<=pn; i++){ // V
-        int now=-1, min_dist = INT32_MAX;
+        int nowV = -1, min_dist = INT32_MAX;
         while(!dist.empty()){
             nowV = dist.top().second; // logV
             if(!selected[nowV]){
@@ -81,6 +81,7 @@ int prim(int pn){ // pn: 노드 수
     return ret;
 }
 ```
+위 코드는 예시일 뿐이며, 알고리즘을 제대로 이해했다면 다른 방식으로 코드를 작성해도 된다.
 
 ### 시간 복잡도
 힙에 모든 정점(V)에 대해 최소 간선 값을 찾고(logV) + 해당 간선에 연결된 정점에 대하여, 다시 그 정점과 연결된 간선들(E)을 최소 힙에 넣어 업데이트(logV)하므로, O(VlogV + ElogV) -> <span style="font-size:20px;">**O(ElogV)**</span>다.
